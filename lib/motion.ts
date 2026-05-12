@@ -7,6 +7,7 @@ export function slideInFromLeft(delay: number) {
       transition: {
         delay: delay,
         duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1] as const,
       },
     },
   };
@@ -21,6 +22,7 @@ export function slideInFromRight(delay: number) {
       transition: {
         delay: delay,
         duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1] as const,
       },
     },
   };
@@ -34,6 +36,7 @@ export const slideInFromTop = {
     transition: {
       delay: 0.5,
       duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1] as const,
     },
   },
 };
