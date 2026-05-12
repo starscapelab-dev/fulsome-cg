@@ -4,7 +4,10 @@ import type { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
+import { Preloader } from "@/components/main/preloader";
 import { StarsCanvas } from "@/components/main/star-background";
+import { StructuredData } from "@/components/seo/structured-data";
+import { CustomCursor } from "@/components/effects/custom-cursor";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -21,13 +24,18 @@ export const metadata: Metadata = siteConfig;
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={cn(
-          "bg-[#030014] overflow-y-scroll overflow-x-hidden",
+          "bg-[#110600] overflow-y-scroll overflow-x-hidden",
           inter.className
         )}
       >
+        <Preloader />
         <StarsCanvas />
+        <CustomCursor />
         <Navbar />
         {children}
         <Footer />

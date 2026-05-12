@@ -9,109 +9,114 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50 px-10">
+    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-black/50 bg-[#03001427] backdrop-blur-md z-50 px-10">
       {/* Navbar Container */}
       <div className="w-full h-full flex items-center justify-between m-auto px-[10px]">
         {/* Logo + Name */}
         <Link
-          href="#about-me"
-          className="flex items-center"
+          href="#home"
+          className="flex items-center gap-2"
         >
           <Image
             src="/logo.png"
-            alt="Logo"
-            width={70}
-            height={70}
+            alt="Fulsome CG Logo"
+            width={50}
+            height={50}
             draggable={false}
             className="cursor-pointer"
           />
-          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">John Doe</div>
+          <div className="flex flex-col">
+            <span className="font-bold text-lg bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
+              Fulsome CG
+            </span>
+            <span className="text-xs text-gray-400 hidden lg:block">
+              International VFX Academy
+            </span>
+          </div>
         </Link>
 
         {/* Web Navbar */}
-        <div className="hidden md:flex w-[500px] h-full flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
+        <div className="hidden lg:flex flex-1 h-full flex-row items-center justify-center">
+          <div className="flex items-center gap-6 h-auto border border-[rgba(255,138,61,0.38)] bg-[rgba(3,0,20,0.37)] px-6 py-3 rounded-full text-gray-200">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.title}
                 href={link.link}
-                className="cursor-pointer hover:text-[rgb(112,66,248)] transition"
+                className="cursor-pointer hover:text-orange-400 transition-colors text-sm font-medium"
               >
                 {link.title}
               </Link>
             ))}
-
-            {/* Source Code */}
-            <Link
-              href={LINKS.sourceCode}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="cursor-pointer hover:text-[rgb(112,66,248)] transition"
-            >
-              Source Code
-            </Link>
           </div>
         </div>
 
-        {/* Social Icons (Web) */}
-        <div className="hidden md:flex flex-row gap-5">
-          {SOCIALS.map(({ link, name, icon: Icon }) => (
-            <Link
-              href={link}
-              target="_blank"
-              rel="noreferrer noopener"
-              key={name}
-            >
-              <Icon className="h-6 w-6 text-white" />
-            </Link>
-          ))}
-        </div>
-
-        {/* Hamburger Menu */}
-        <button
-          className="md:hidden text-white focus:outline-none text-4xl"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          ☰
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-[65px] left-0 w-full bg-[#030014] p-5 flex flex-col items-center text-gray-300 md:hidden">
-          {/* Links */}
-          <div className="flex flex-col items-center gap-4">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.title}
-                href={link.link}
-                className="cursor-pointer hover:text-[rgb(112,66,248)] transition text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.title}
-              </Link>
-            ))}
-            <Link
-              href={LINKS.sourceCode}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="cursor-pointer hover:text-[rgb(112,66,248)] transition text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Source Code
-            </Link>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex justify-center gap-6 mt-6">
+        {/* CTA Button & Social Icons (Web) */}
+        <div className="hidden lg:flex flex-row items-center gap-4">
+          <Link
+            href="#contact"
+            className="px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-full font-semibold hover:opacity-90 transition-opacity"
+          >
+            Enroll Now
+          </Link>
+          <div className="flex gap-3">
             {SOCIALS.map(({ link, name, icon: Icon }) => (
               <Link
                 href={link}
                 target="_blank"
                 rel="noreferrer noopener"
                 key={name}
+                className="hover:scale-110 transition-transform"
               >
-                <Icon className="h-8 w-8 text-white" />
+                <Icon className="h-5 w-5 text-white" />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Hamburger Menu */}
+        <button
+          className="lg:hidden text-white focus:outline-none text-3xl"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-md border-t border-orange-500/20 p-6 flex flex-col items-center text-gray-300 lg:hidden shadow-xl">
+          {/* Links */}
+          <div className="flex flex-col items-center gap-5 w-full">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.title}
+                href={link.link}
+                className="cursor-pointer hover:text-orange-400 transition text-center text-lg w-full py-2 hover:bg-orange-500/10 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.title}
+              </Link>
+            ))}
+            <Link
+              href="#contact"
+              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-full font-semibold text-center hover:opacity-90 transition-opacity"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Enroll Now
+            </Link>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-gray-700">
+            {SOCIALS.map(({ link, name, icon: Icon }) => (
+              <Link
+                href={link}
+                target="_blank"
+                rel="noreferrer noopener"
+                key={name}
+                className="hover:scale-110 transition-transform"
+              >
+                <Icon className="h-7 w-7 text-white" />
               </Link>
             ))}
           </div>

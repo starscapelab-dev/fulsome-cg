@@ -14,7 +14,7 @@ export const Encryption = () => {
           className="text-[40px] font-medium text-center text-gray-200"
         >
           Performance{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">
             &
           </span>{" "}
           security.
@@ -39,7 +39,7 @@ export const Encryption = () => {
           />
         </div>
 
-        <div className="Welcome-box px-[15px] py-[4px] z-[20] border my-[20px] border-[#7042F88B] opacity-[0.9]">
+        <div className="Welcome-box px-[15px] py-[4px] z-[20] border my-[20px] border-orange-500/50 opacity-[0.9]">
           <h1 className="Welcome-text text-[12px]">Encryption</h1>
         </div>
       </div>
