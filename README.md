@@ -55,7 +55,9 @@ space-portfolio/
     |-- layout.tsx
     |-- page.tsx
   |- components/
+    |-- effects/
     |-- main/
+    |-- seo/
     |-- sub/
   |- config/
     |-- index.ts
