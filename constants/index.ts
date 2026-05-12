@@ -88,12 +88,46 @@ export const SKILL_DATA = [
   },
 ] as const;
 
+export const FULLSTACK_SKILL = [
+  {
+    skill_name: "HTML",
+    image: "html.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "CSS",
+    image: "css.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "JavaScript",
+    image: "js.png",
+    width: 65,
+    height: 65,
+  },
+  {
+    skill_name: "React",
+    image: "react.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Node.js",
+    image: "node.png",
+    width: 80,
+    height: 80,
+  },
+] as const;
+
 export const SOCIALS = [
   {
     name: "Instagram",
     icon: RxInstagramLogo,
     link: "https://www.instagram.com/fulsomecg/",
   },
+
   {
     name: "Facebook",
     icon: FaFacebook,
